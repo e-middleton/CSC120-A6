@@ -37,7 +37,7 @@ public class Library extends Building{
       this.collection.remove(title);
       System.out.println(title + " has been removed from " + this.name + " libaray.");
     } else {
-      System.out.println(title + " is not a book in " + this.name + " library. It cannot be removed.");
+      throw new RuntimeException(title + " is not a book in " + this.name + " library. It cannot be removed.");
     }
     return title;
   }
@@ -52,10 +52,10 @@ public class Library extends Building{
       if(this.isAvailable(title)){ //is the book currently available
         this.collection.replace(title, false); //makes the book unavailable
       } else {
-        System.out.println("I'm sorry, " + title + " is currently checked out.");
+        throw new RuntimeException("I'm sorry, " + title + " is currently checked out.");
       } 
     } else {
-      System.out.println(title + " does not exist in the " + this.name + " library collection, it may not be checked out.");
+      throw new RuntimeException(title + " does not exist in the " + this.name + " library collection, it may not be checked out.");
     }
   }
 
@@ -68,7 +68,7 @@ public class Library extends Building{
     if(this.containsTitle(title)){ //does this book exist in the collection
       this.collection.replace(title, true); //makes the book available for other patrons
     } else {
-      System.out.println(title + "is not in the " + this.name + "library collection. It cannot be returned. Please find the library it belongs to.");
+      throw new RuntimeException(title + "is not in the " + this.name + "library collection. It cannot be returned. Please find the library it belongs to.");
     }
   }
 

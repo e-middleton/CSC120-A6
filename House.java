@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class House extends Building{ //inherits from Building class (subclass)
   private ArrayList<String> residents; //who lives in this house?
-  private Boolean hasDiningRoom;
+  private boolean hasDiningRoom;
 
   /**
    * Constructor for the House class
@@ -42,16 +42,12 @@ public class House extends Building{ //inherits from Building class (subclass)
    * Before moving in, it checks if the person is not already resident
    * @param name the name of the person who wants to move in
    */
-  public void moveIn(String name){
-    try { 
-      if(!(this.isResident(name))){ //checks to see if a perosn is not a resident already
-        residents.add(name);
-        System.out.println("Welcome to Morrow, " + name + "!");
-      } else {
-        throw new RuntimeException("This person is already resident"); //technically makes it so that people of the same name cannot live in the same house
-      }
-    } catch (RuntimeException e){
-      System.out.println(e + ", cannot move in.");
+  public void moveIn(String name){ 
+    if(!(this.isResident(name))){ //checks to see if a perosn is not a resident already
+      residents.add(name);
+      System.out.println("Welcome to Morrow, " + name + "!");
+    } else {
+      throw new RuntimeException("This person is already resident"); //technically makes it so that people of the same name cannot live in the same house
     }
   }
 
@@ -64,7 +60,7 @@ public class House extends Building{ //inherits from Building class (subclass)
     if(this.isResident(name)){ //checks if a person is a resident
         residents.remove(name);
     } else{
-      System.out.println(name + " is not a resident in " + this.name + " they are unable to move out.");
+      throw new RuntimeException(name + " is not a resident in " + this.name + " they are unable to move out.");
     }
     return name;
   }

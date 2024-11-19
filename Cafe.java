@@ -36,22 +36,30 @@ public class Cafe extends Building{
         if(this.nCoffeeOunces - size >= 0){
             this.nCoffeeOunces -= size;
         } else {
-            this.restock(20, 0, 0, 0);
+            this.restock(20, 0, 0, 0); //restocks the item out of store, and then sells it so they don't need to reorder
+            System.out.println("Restocking coffee!");
+            this.nCoffeeOunces -= size;
         }
         if(this.nSugarPackets - nSugarPackets >= 0){
             this.nSugarPackets -= nSugarPackets;
         } else {
             this.restock(0, 10, 0, 0);
+            System.out.println("Restocking sugar packets!");
+            this.nSugarPackets -= nSugarPackets;
         } 
         if(this.nCreams - nCreams >= 0){
             this.nCreams -= nCreams;
         } else{
             this.restock(0, 0, 10, 0);
+            System.out.println("Restocking cream!");
+            this.nCreams -= nCreams;
         }
         if(this.nCups > 0){
             this.nCups -= 1;
         } else{
             this.restock(0, 0, 0, 5);
+            System.out.println("Restocking cups!");
+            this.nCups -= 1;
         }
         System.out.println("Enjoy your coffee!");
     }

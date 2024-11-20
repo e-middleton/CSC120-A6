@@ -23,7 +23,7 @@ public class Library extends Building{
    * @param title the title of the book being added
    */
   public void addTitle(String title){
-    //not checking if it's already a book because there may be multiple copies
+    //hashtable won't allow duplicate keys/book titles
     this.collection.put(title, true);
   }
 

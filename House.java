@@ -45,7 +45,7 @@ public class House extends Building{ //inherits from Building class (subclass)
   public void moveIn(String name){ 
     if(!(this.isResident(name))){ //checks to see if a perosn is not a resident already
       residents.add(name);
-      System.out.println("Welcome to Morrow, " + name + "!");
+      System.out.println("Welcome to " + this.name + ", " + name + "!");
     } else {
       throw new RuntimeException("This person is already resident"); //technically makes it so that people of the same name cannot live in the same house
     }
